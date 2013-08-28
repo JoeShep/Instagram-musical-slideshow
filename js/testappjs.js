@@ -20,18 +20,18 @@ $(document).ready(function(){
 	// }
 	$('#big_play_btn').click(function(){
 		$('#overlay').fadeOut("3000", function() { $(this).remove(); });
-		$(function() {
-	  var index = 0;
-	  var instaFeed = $('.instaMedia')
+		$('#player_btns').fadeIn("3000", function() {
+		  var index = 0;
+		  var instaFeed = $('.instaMedia');
 
-	  var doNext = function() { 
-	  	$('.photoDivL').empty().append(instaFeed.eq(index));
-	    // increment the index - if it is beyond the number of li's - reset it to 0
-	    if (++index >= instaFeed.length) index = 0;
-	  };
-	  doNext();
-	  // set it up to be called every 8000 ms
-	  setInterval(doNext, 8000);
+		  var doNext = function() { 
+		  	$('#photoDivL').empty().append(instaFeed.eq(index));
+		    // increment the index - if it is beyond the number of li's - reset it to 0
+		    if (++index >= instaFeed.length) index = 0;
+		  };
+		  doNext();
+		  // set it up to be called every 8000 ms
+		  setInterval(doNext, 8000);
 	});
 });
 	
