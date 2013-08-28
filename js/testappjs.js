@@ -10,38 +10,30 @@ $(document).ready(function(){
 	};
 
 	$('.photoList').spectragram('getRecentTagged',{
-    query: 'graduation',
-    max: 30,
+    query: 'love',
+    max: 40,
     wrapEachWith: '<li class="instaMedia"></li>',
 	});
 
-	// function showPics(instaFeed){
-	// 	$('.photoDivL').append(instaFeed[Math.floor(Math.random() * instaFeed.length)]);
-	// }
 	$('#big_play_btn').click(function(){
 		$('#overlay').fadeOut("4000", function() { $(this).remove(); });
-		$('#player_btns').delay("slow").fadeIn("4000", function() {
+		$('#player_btns').delay("slow").fadeIn("slow", function() {
+		$('#displayDiv').css('visibility','visible').hide().fadeIn('slow');
 		  var index = 0;
 		  var instaFeed = $('.instaMedia');
 
 		  var doNext = function() { 
 		  	$('#photoDivL').empty().append(instaFeed.eq(index));
 		  	$('#photoDivR').empty().append(instaFeed.eq(index + 1));
-		    // increment the index - if it is beyond the number of li's - reset it to 0
-		    if (++index >= instaFeed.length) index = 0;
+		    index+=2;
+		    if (index >= instaFeed.length) index = 0;
 		  };
 		  doNext();
-		  // set it up to be called every 8000 ms
 		  setInterval(doNext, 8000);
 		  soundManager.play('kodachrome');
 	});
 });
 	
-	// var slideshow = setInterval(function(){
-	// 	$('.photoDivL').empty();
-	// 	showPics();
-	// }, 5000);
-
 	//******************* Music playback plugin stuff ************
 	soundManager.setup({
 
@@ -49,26 +41,13 @@ $(document).ready(function(){
 
 	  url: 'swf/',
 
-	  // optional: version of SM2 flash audio API to use (8 or 9; default is 8 if omitted, OK for most use cases.)
-	  // flashVersion: 9,
-
-	  // optional: use 100% HTML5 mode where available
-	  // preferFlash: false,
-
-	  // use soundmanager2-nodebug-jsmin.js, or disable debug mode (enabled by default) after development/testing
-	  // debugMode: false,
-
-	  // good to go: the onready() callback
-
 	  onready: function() {
 	    soundManager.createSound({
 		      id: 'kodachrome',
 		      url: 'audio/Kodachrome.mp3'
-		      // onload: function() { console.log('sound loaded!', this); }
 		      // other options here..
 		    });
 	  },
-	  // optional: ontimeout() callback for handling start-up failure
 
 	  ontimeout: function() {
 

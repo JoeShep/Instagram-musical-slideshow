@@ -8,12 +8,14 @@
   display: none;
 }
 
-#display {
+#displayDiv {
+  visibility: hidden; 
   width: 70%;
+  height: 320px;
   position: relative;
   left: 10%;
-  border: 1px solid red;
   padding-left: 8%;
+  margin-top: 50px;
 }
 
 #photoDivL, #photoDivR {
@@ -23,7 +25,9 @@
 
 #overlay {
   width: 60%;
-  position: relative;
+  position: absolute;
+  top: 50px;
+  left: 20%;
   margin: 0 auto;
   text-align: center;
 }
@@ -41,7 +45,7 @@
   display: none;
   width: 20%;
   position: relative;
-  margin: 0 auto;
+  margin: 20px auto;
 }
 
 #big_play_btn{
