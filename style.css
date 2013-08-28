@@ -41,6 +41,20 @@
   list-style: none;  
 }
 
+#progBkgd {
+background-color: #333333;
+height: 10px;
+margin-top: 10px;
+margin-bottom: 8px;
+position: relative;
+width: 100%;
+}
+
+#progColor {
+background-color: orange;
+height:10px;
+}
+
 #player_btns {
   display: none;
   width: 20%;
@@ -54,7 +68,11 @@
   text-align: center;
 }
 
-#play_btn, #pause_btn, #big_play_btn {
+#play_btn {
+  margin-left: 15px;
+}
+
+#play_btn, #pause_btn, #stop_btn, #big_play_btn {
   cursor: pointer;
 }
 

@@ -52,8 +52,13 @@ $(document).ready(function(){
 	  onready: function() {
 	    soundManager.createSound({
 		      id: 'kodachrome',
-		      url: 'audio/Kodachrome.mp3'
-		      // other options here..
+		      url: 'audio/Kodachrome.mp3',
+		      whileplaying: function() {
+    			$("#progColor").css('width', ((this.position/this.duration) * 100) + '%');
+			    },
+			    onfinish: function() {
+	        $("#progColor").css('width', '0');
+	        }
 		    });
 	  },
 
