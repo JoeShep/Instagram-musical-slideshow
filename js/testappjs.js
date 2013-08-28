@@ -10,8 +10,8 @@ $(document).ready(function(){
 	};
 
 	$('.photoList').spectragram('getRecentTagged',{
-    query: 'cats',
-    max: 20,
+    query: 'graduation',
+    max: 30,
     wrapEachWith: '<li class="instaMedia"></li>',
 	});
 
@@ -19,19 +19,21 @@ $(document).ready(function(){
 	// 	$('.photoDivL').append(instaFeed[Math.floor(Math.random() * instaFeed.length)]);
 	// }
 	$('#big_play_btn').click(function(){
-		$('#overlay').fadeOut("3000", function() { $(this).remove(); });
-		$('#player_btns').fadeIn("3000", function() {
+		$('#overlay').fadeOut("4000", function() { $(this).remove(); });
+		$('#player_btns').delay("slow").fadeIn("4000", function() {
 		  var index = 0;
 		  var instaFeed = $('.instaMedia');
 
 		  var doNext = function() { 
 		  	$('#photoDivL').empty().append(instaFeed.eq(index));
+		  	$('#photoDivR').empty().append(instaFeed.eq(index + 1));
 		    // increment the index - if it is beyond the number of li's - reset it to 0
 		    if (++index >= instaFeed.length) index = 0;
 		  };
 		  doNext();
 		  // set it up to be called every 8000 ms
 		  setInterval(doNext, 8000);
+		  soundManager.play('kodachrome');
 	});
 });
 	

@@ -4,20 +4,33 @@
   position: relative;
 }
 
-.photoBox{
+.photoBox {
   display: none;
 }
 
-#overlay {
-  width: 20%;
+#display {
+  width: 70%;
   position: relative;
-  margin: 0 auto;
+  left: 10%;
+  border: 1px solid red;
+  padding-left: 8%;
 }
 
-#photoDivL {
-  margin: 10px 20%;
+#photoDivL, #photoDivR {
+  margin: 7px;
+  display: inline-block;  
+}
+
+#overlay {
   width: 60%;
-  margin: 15px auto;
+  position: relative;
+  margin: 0 auto;
+  text-align: center;
+}
+
+#overlay_text {
+  font-size: 250%;
+  font-family: "Helvetica", sans-serif
 }
 
 .instaMedia {
@@ -29,6 +42,12 @@
   width: 20%;
   position: relative;
   margin: 0 auto;
+}
+
+#big_play_btn{
+  width: 25%;
+  margin: 8px auto;
+  text-align: center;
 }
 
 #play_btn, #pause_btn, #big_play_btn {
