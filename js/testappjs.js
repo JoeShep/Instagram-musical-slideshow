@@ -18,7 +18,8 @@ $(document).ready(function(){
 	$('#big_play_btn').click(function(){
 		$('#overlay').fadeOut("4000", function() { $(this).remove(); });
 		$('#player_btns').delay("slow").fadeIn("slow", function() {
-		$('#displayDiv').css('visibility','visible').hide().fadeIn('slow');
+			$('#displayDiv').css('visibility','visible').hide().fadeIn('slow');
+			var slideshow = null;
 		  var index = 0;
 		  var instaFeed = $('.instaMedia');
 
@@ -27,12 +28,19 @@ $(document).ready(function(){
 		  	$('#photoDivR').empty().append(instaFeed.eq(index + 1));
 		    index+=2;
 		    if (index >= instaFeed.length) index = 0;
-		  };
-		  doNext();
-		  setInterval(doNext, 8000);
+		  };		  
 		  soundManager.play('kodachrome');
+		  function start() {  
+        slideshow = setInterval(doNext, 8000);
+    	};
+			function stop() {
+        clearInterval(slideshow);
+    	};
+			$('#play_btn').bind("click", start); 
+    	$('#stop_btn, #pause_btn').bind("click", stop);
+    	start();
+		});
 	});
-});
 	
 	//******************* Music playback plugin stuff ************
 	soundManager.setup({
