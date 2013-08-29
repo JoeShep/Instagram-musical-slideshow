@@ -24,18 +24,21 @@ $(document).ready(function(){
 		  var instaFeed = $('.instaMedia');
 
 		  var doNext = function() { 
-		  	$('#photoDivL').empty().append(instaFeed.eq(index));
-		  	$('#photoDivR').empty().append(instaFeed.eq(index + 1));
+		  	$('#photoDivL').empty().append(instaFeed.eq(index)).hide().fadeIn(1000);
+		  	$('#photoDivR').empty().append(instaFeed.eq(index + 1)).hide().fadeIn(1000);
 		    index+=2;
-		    if (index >= instaFeed.length) index = 0;
-		  };		  
+		    if (index >= instaFeed.length) {index = 0};
+		  };	
+		  doNext();	  
 		  soundManager.play('kodachrome');
+
 		  function start() {  
-        slideshow = setInterval(doNext, 8000);
+        slideshow = setInterval(doNext, 10000);
     	};
 			function stop() {
         clearInterval(slideshow);
     	};
+
 			$('#play_btn').bind("click", start); 
     	$('#stop_btn, #pause_btn').bind("click", stop);
     	start();
@@ -44,31 +47,26 @@ $(document).ready(function(){
 	
 	//******************* Music playback plugin stuff ************
 	soundManager.setup({
-
 	  // location: path to SWF files, as needed (SWF file name is appended later.)
-
 	  url: 'swf/',
 
 	  onready: function() {
 	    soundManager.createSound({
-		      id: 'kodachrome',
-		      url: 'audio/Kodachrome.mp3',
-		      whileplaying: function() {
-    			$("#progColor").css('width', ((this.position/this.duration) * 100) + '%');
-			    },
-			    onfinish: function() {
-	        $("#progColor").css('width', '0');
-	        }
-		    });
+	      id: 'kodachrome',
+	      url: 'audio/Kodachrome.mp3',
+	      whileplaying: function() {
+  			$("#progColor").css('width', ((this.position/this.duration) * 100) + '%')
+		    },
+		    onfinish: function() {
+        $("#progColor").css('width', '0');
+        }
+	    });
 	  },
 
 	  ontimeout: function() {
-
 	    // Hrmm, SM2 could not start. Missing SWF? Flash blocked? Show an error, etc.?
 	    // See the flashblock demo when you want to start getting fancy.
-
   	}
-
 	});	
 
 	$('#play_btn').click(function(){		
@@ -82,7 +80,5 @@ $(document).ready(function(){
 	$('#stop_btn').click(function(){
 		soundManager.stop('kodachrome');
 	});
-	
-
 
 }); //end ready

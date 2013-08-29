@@ -14,13 +14,15 @@
   height: 320px;
   position: relative;
   left: 10%;
-  padding-left: 8%;
+  padding-left: 10%;
   margin-top: 50px;
+
 }
 
 #photoDivL, #photoDivR {
   margin: 7px;
-  display: inline-block;  
+  display: inline-block; 
+  border: 5px solid black; 
 }
 
 #overlay {
@@ -42,17 +44,18 @@
 }
 
 #progBkgd {
-background-color: #333333;
-height: 10px;
-margin-top: 10px;
-margin-bottom: 8px;
-position: relative;
-width: 100%;
+  background-color: #333333;
+  height: 10px;
+  margin-top: 10px;
+  margin-bottom: 8px;
+  position: relative;
+  width: 100%;
 }
 
 #progColor {
-background-color: orange;
-height:10px;
+  width: 0%;
+  background-color: orange;
+  height:10px;
 }
 
 #player_btns {
