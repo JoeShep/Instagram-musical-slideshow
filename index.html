@@ -11,31 +11,41 @@
 	<script type="text/javascript" src="js/testappjs.js"></script>
 </head>
 <body>
-
-<div class="photoBox">
-	<ul class="photoList">
-	</ul>
-</div>
-<div class="container">
-	<div id="displayDiv">
-		<div id="photoDivL">
+	<div id="fb-root"></div>
+	<script></script>
+	<header>
+		<div class="headerL">
 		</div>
-		<div id="photoDivR">
-		</div>
-	</div> <!-- end display -->
-	<div id="overlay">
-		<p id="overlay_text">
-			Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse sit amet mattis lacus. <br><br>
-			Morbi luctus, elit nec convallis facilisis, quam massa ultrices mi, vitae sodales dui erat pretium odio. 
-		</p>
-		<img src="img/play_btn.jpg" alt="Big play button" id="big_play_btn">
+		<div class="headerR">	
+			<div class="fb-like" data-href="https://instagramapitest-sewipi.backliftapp.com/" data-width="450" data-layout="button_count" data-show-faces="true" data-send="false"></div>
+			<a href="https://twitter.com/share" class="twitter-share-button" data-via="JoeShepMedia">Tweet</a>
+		</div> <!-- end headerR -->
+	</header>
+	
+	<div class="photoBox">
+		<ul class="photoList">
+		</ul>
 	</div>
-	<div id="player_btns">
-		<div id="progBkgd" class="progBar"><div id="progColor" class="progBar"></div></div>
-		<img src="img/play_btnSmall.png" alt="Play button" id="play_btn">
-		<img src="img/pause_btnSmall.png" alt="Pause button" id="pause_btn">
-		<img src="img/stop_btnSmall.png" alt="Stop button" id="stop_btn">
-	</div>
-</div> <!-- end container -->
+	<div class="container">
+		<section id="displayDiv">
+			<div id="photoDivL">
+			</div>
+			<div id="photoDivR">
+			</div>
+		</section> <!-- end display -->
+		<section id="overlay">
+			<p id="overlay_text">
+				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse sit amet mattis lacus. <br><br>
+				Morbi luctus, elit nec convallis facilisis, quam massa ultrices mi, vitae sodales dui erat pretium odio. 
+			</p>
+			<img src="img/play_btn.jpg" alt="Big play button" id="big_play_btn">
+		</section>
+		<section id="player_btns">
+			<div id="progBkgd" class="progBar"><div id="progColor" class="progBar"></div></div>
+			<img src="img/play_btnSmall.png" alt="Play button" id="play_btn">
+			<img src="img/pause_btnSmall.png" alt="Pause button" id="pause_btn">
+			<img src="img/stop_btnSmall.png" alt="Stop button" id="stop_btn">
+		</section>
+	</div> <!-- end container -->
 </body>
 </html>

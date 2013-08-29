@@ -1,3 +1,18 @@
+/* header */
+
+header {
+  padding: 8px;
+}
+
+.headerR {
+  float: right;
+}
+
+.fb-like {
+  margin-right: 4px;
+}
+
+/* body */
 
 #container {
   width: 100%;
@@ -6,23 +21,6 @@
 
 .photoBox {
   display: none;
-}
-
-#displayDiv {
-  visibility: hidden; 
-  width: 70%;
-  height: 320px;
-  position: relative;
-  left: 10%;
-  padding-left: 10%;
-  margin-top: 50px;
-
-}
-
-#photoDivL, #photoDivR {
-  margin: 7px;
-  display: inline-block; 
-  border: 5px solid black; 
 }
 
 #overlay {
@@ -39,9 +37,30 @@
   font-family: "Helvetica", sans-serif
 }
 
+#displayDiv {
+  visibility: hidden; 
+  width: 70%;
+  height: 320px;
+  position: relative;
+  left: 10%;
+  padding-left: 10%;
+  margin-top: 50px;
+}
+
+#photoDivL, #photoDivR {
+  margin: 7px;
+  display: inline-block; 
+  border: 5px solid black; 
+  -webkit-box-shadow: 0 8px 6px -6px black;
+  -moz-box-shadow: 0 8px 6px -6px black;
+  box-shadow: 0 8px 6px -6px black;
+}
+
 .instaMedia {
   list-style: none;  
 }
+
+/*  audio/video controls  */
 
 #progBkgd {
   background-color: #333333;
