@@ -102,6 +102,7 @@ $(document).ready(function(){
 
 	$('#stop_btn').click(function(){
 		soundManager.stop('kodachrome');
+		$("#progColor").css('width', '0');
 	});
 
 }); //end ready
