@@ -1,7 +1,7 @@
 
 
 $(document).ready(function(){
-	
+
 	//***************** Facebook "Like" *******************
 	(function(d, s, id) {
 	  var js, fjs = d.getElementsByTagName(s)[0];
@@ -49,12 +49,15 @@ $(document).ready(function(){
 		    index+=2;
 		    if (index >= instaFeed.length) {index = 0};
 		  };	
-		  doNext();	  
+		  doNext();
+		  // setInterval(doNext, 10000);
+		    
 		  soundManager.play('kodachrome');
 
 		  function start() {  
         slideshow = setInterval(doNext, 10000);
     	};
+
 			function stop() {
         clearInterval(slideshow);
     	};
