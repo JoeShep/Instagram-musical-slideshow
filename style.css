@@ -1,6 +1,7 @@
 /* header */
 
 header {
+  display: none;
   padding: 8px;
 }
 
@@ -26,15 +27,32 @@ header {
 #overlay {
   width: 60%;
   position: absolute;
-  top: 50px;
+  top: 100px;
   left: 20%;
   margin: 0 auto;
   text-align: center;
 }
 
-#overlay_text {
-  font-size: 250%;
-  font-family: "Helvetica", sans-serif
+.overlay_text {
+  font-family: "Helvetica", sans-serif;
+  display: none;
+  padding: 15px;
+}
+
+#intro_text1 {
+  font-size: 125%;
+}
+
+#title_text {
+  font-size: 225%;
+  font-family: 'Rock Salt', cursive;
+}
+
+#big_play_btn{
+  display: none;
+  width: 25%;
+  margin: 8px auto;
+  text-align: center;
 }
 
 #displayDiv {
@@ -84,18 +102,27 @@ header {
   margin: 20px auto;
 }
 
-#big_play_btn{
-  width: 25%;
-  margin: 8px auto;
-  text-align: center;
-}
-
 #play_btn {
   margin-left: 15px;
 }
 
 #play_btn, #pause_btn, #stop_btn, #big_play_btn {
   cursor: pointer;
+}
+
+/*  footer  */
+
+footer {
+  display: none;
+  position: absolute;
+  bottom: 15px;
+  width: 100%
+}
+#disclaimer {
+  font-family: "Helvetica", sans-serif;
+  font-size: 70%;
+  text-align: center;
+  width: 95%;
 }
 
 

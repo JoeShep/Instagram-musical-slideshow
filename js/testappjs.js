@@ -2,6 +2,13 @@
 
 $(document).ready(function(){
 
+	//***************** on first page load *************** 
+	$('#intro_text1, header').delay(500).fadeIn(1200);
+	$('#title_text').delay(1800).fadeIn(1200);
+	$('#intro_text2').delay(2800).fadeIn(1200);
+	$('#big_play_btn, footer').delay(3800).fadeIn(1200);
+
+
 	//***************** Facebook "Like" *******************
 	(function(d, s, id) {
 	  var js, fjs = d.getElementsByTagName(s)[0];
@@ -36,6 +43,8 @@ $(document).ready(function(){
 	});
 
 	$('#big_play_btn').click(function(){
+		$('header').fadeOut("4000");
+		$('footer').fadeOut("4000");
 		$('#overlay').fadeOut("4000", function() { $(this).remove(); });
 		$('#player_btns').delay("slow").fadeIn("slow", function() {
 			$('#displayDiv').css('visibility','visible').hide().fadeIn('slow');
@@ -44,18 +53,17 @@ $(document).ready(function(){
 		  var instaFeed = $('.instaMedia');
 
 		  var doNext = function() { 
-		  	$('#photoDivL').empty().append(instaFeed.eq(index)).hide().fadeIn(1000);
-		  	$('#photoDivR').empty().append(instaFeed.eq(index + 1)).hide().fadeIn(1000);
+		  	$('#photoDivL').empty().append(instaFeed.eq(index)).hide().fadeIn(1500);
+		  	$('#photoDivR').empty().append(instaFeed.eq(index + 1)).hide().fadeIn(1500);
 		    index+=2;
 		    if (index >= instaFeed.length) {index = 0};
 		  };	
 		  doNext();
-		  // setInterval(doNext, 10000);
 		    
 		  soundManager.play('kodachrome');
 
 		  function start() {  
-        slideshow = setInterval(doNext, 10000);
+        slideshow = setInterval(doNext, 9000);
     	};
 
 			function stop() {
