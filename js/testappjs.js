@@ -29,7 +29,7 @@ $(document).ready(function(){
 			}
 		}(document, 'script', 'twitter-wjs');
 
-	//***************** Instagram API plugin stuff ***************
+	//***************** Instagram API ***************
 
 	jQuery.fn.spectragram.accessData = {
 	    accessToken: '22033045.ea9028a.eec94286a2e049429fe51c3fbc95db20',
@@ -41,6 +41,8 @@ $(document).ready(function(){
     max: 40,
     wrapEachWith: '<li class="instaMedia"></li>',
 	});
+
+	//***************** UI functionality **************
 
 	$('#big_play_btn').click(function(){
 		$('header').fadeOut("4000");
@@ -75,8 +77,26 @@ $(document).ready(function(){
     	start();
 		});
 	});
+
+	$('#about').hover(
+		function(){
+			$(this).addClass("bordered");
+		},
+		function(){
+			$(this).removeClass("bordered");
+		}
+	);
+
+	$('#add-vid').hover(
+		function(){
+			$(this).addClass("bordered");
+		},
+		function(){
+			$(this).removeClass("bordered");
+		}
+	);
 	
-	//******************* Music playback plugin stuff ************
+	//******************* Music playback ************
 	soundManager.setup({
 	  // location: path to SWF files, as needed (SWF file name is appended later.)
 	  url: 'swf/',
@@ -102,6 +122,7 @@ $(document).ready(function(){
 
 	$('#play_btn').click(function(){		
 		soundManager.play('kodachrome');
+		// $(this).css({"border-bottom": "1px solid green","border-radius":"10px"});
 	});
 
 	$('#pause_btn').click(function(){
