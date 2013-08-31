@@ -36,11 +36,13 @@ $(document).ready(function(){
 	    clientID: 'c8852afd43f24157ab8e06c827d9e058'
 	};
 
+	!function grabVideos(){
 	$('.photoList').spectragram('getRecentTagged',{
     query: 'love',
-    max: 40,
-    wrapEachWith: '<li class="instaMedia"></li>',
+    max: 20,
+    wrapEachWith: '<li class="instaVid"></li>',
 	});
+}();
 
 	//***************** UI functionality **************
 
@@ -52,7 +54,7 @@ $(document).ready(function(){
 			$('#displayDiv').css('visibility','visible').hide().fadeIn('slow');
 			var slideshow = null;
 		  var index = 0;
-		  var instaFeed = $('.instaMedia');
+		  var instaFeed = $('.instaVid');
 
 		  var doNext = function() { 
 		  	$('#photoDivL').empty().append(instaFeed.eq(index)).hide().fadeIn(1500);
@@ -85,7 +87,7 @@ $(document).ready(function(){
 		function(){
 			$(this).removeClass("bordered");
 		}
-	);
+	);3
 
 	$('#add-vid').hover(
 		function(){

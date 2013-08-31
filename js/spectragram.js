@@ -114,26 +114,20 @@ if (typeof Object.create !== 'function') {
         setSize = self.options.size,
         size, max = (self.options.max >= results.data.length) ?
           results.data.length : self.options.max;
-
       if (results.data.length === 0) {
         self.$elem.append($(self.options.wrapEachWith).append(self.options
           .notFoundMsg));
       } else {
         for (var i = 0; i < max; i++) {
-          if (setSize == "small") {
-            size = results.data[i].images.thumbnail.url;
-          } else if (setSize == "medium") {
-            size = results.data[i].images.low_resolution.url;
-          } else {
-            size = results.data[i].images.standard_resolution.url;
-          }
+        	if (results.data[i].videos) {
+         	size = results.data[i].videos.standard_resolution.url;
           self.$elem.append($(self.options.wrapEachWith).append(
-            "<a title='" + results.data[i].caption.text +
+            "<a data-media='" + results.data[i].type + "'title='" + results.data[i].caption.text +
             "' target='_blank' href='" + results.data[i].link +
             "'><img src='" + size + "'></img></a>"));
-        }
+      		}
+      	}
       }
-
       if (typeof self.options.complete === 'function') {
         self.options.complete.call(self);
       }
