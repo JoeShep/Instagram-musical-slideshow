@@ -37,12 +37,26 @@ $(document).ready(function(){
 	};
 
 	!function grabVideos(){
-	$('.photoList').spectragram('getRecentTagged',{
-    query: 'love',
-    max: 20,
-    wrapEachWith: '<li class="instaVid"></li>',
-	});
-}();
+		$('.photoList').spectragram('getPopular',{
+	    max: 40,
+	    wrapEachWith: '<li class="instaVid"></li>',
+		});
+	}();
+
+	// ****************** JWplayer / video setup ****************
+	var instaFeed = $('.instaVid');
+	jwplayer("vidDivL").setup({
+	file: '/some/summy/file.mp4',
+	controls: false,
+	width: 470,
+	height: 470,
+	fallback: true,
+	primary: "flash",
+	mute: true,
+	repeat: false,
+	allowscriptaccess: "always",
+	allownetworking: "all"
+});
 
 	//***************** UI functionality **************
 
@@ -52,17 +66,17 @@ $(document).ready(function(){
 		$('#overlay').fadeOut("4000", function() { $(this).remove(); });
 		$('#player_btns').delay("slow").fadeIn("slow", function() {
 			$('#displayDiv').css('visibility','visible').hide().fadeIn('slow');
-			var slideshow = null;
-		  var index = 0;
-		  var instaFeed = $('.instaVid');
 
-		  var doNext = function() { 
-		  	$('#photoDivL').empty().append(instaFeed.eq(index)).hide().fadeIn(1500);
-		  	$('#photoDivR').empty().append(instaFeed.eq(index + 1)).hide().fadeIn(1500);
-		    index+=2;
-		    if (index >= instaFeed.length) {index = 0};
-		  };	
-		  doNext();
+			
+			// var slideshow = null;
+		  // var index = 0;
+		  // var doNext = function() { 
+		  // 	$('#vidDivL').empty().append(instaFeed.eq(index)).hide().fadeIn(1500);
+		  // 	$('#vidDivR').empty().append(instaFeed.eq(index + 1)).hide().fadeIn(1500);
+		  //   index+=2;
+		  //   if (index >= instaFeed.length) {index = 0};
+		  // };	
+		  // doNext();
 		    
 		  soundManager.play('kodachrome');
 

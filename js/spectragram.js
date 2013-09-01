@@ -120,11 +120,11 @@ if (typeof Object.create !== 'function') {
       } else {
         for (var i = 0; i < max; i++) {
         	if (results.data[i].videos) {
-         	size = results.data[i].videos.standard_resolution.url;
+         	size = results.data[i].videos.low_resolution.url;
           self.$elem.append($(self.options.wrapEachWith).append(
-            "<a data-media='" + results.data[i].type + "'title='" + results.data[i].caption.text +
+            "sources: <a data-media='" + results.data[i].type + "'title='" + results.data[i].caption.text +
             "' target='_blank' href='" + results.data[i].link +
-            "'><img src='" + size + "'></img></a>"));
+            "'><video src='" + size + "'></video></a>"));
       		}
       	}
       }

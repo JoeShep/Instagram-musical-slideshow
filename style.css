@@ -47,7 +47,7 @@ header {
   position: relative;
 }
 
-.photoBox {
+.vidBox {
   display: none;
 }
 
@@ -92,7 +92,7 @@ header {
   margin-top: 70px;
 }
 
-#photoDivL, #photoDivR {
+#vidDivL, #vidDivR {
   margin: 7px;
   display: inline-block; 
   border: 5px solid black; 
@@ -101,7 +101,7 @@ header {
   box-shadow: 0 8px 6px -6px black;
 }
 
-.instaMedia {
+.instaVid {
   list-style: none;  
 }
 
@@ -149,6 +149,7 @@ footer {
   bottom: 15px;
   width: 100%
 }
+
 #disclaimer {
   font-family: "Helvetica", sans-serif;
   font-size: 70%;
