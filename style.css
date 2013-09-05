@@ -44,7 +44,7 @@ header {
 
 #container {  
   width: 100%;
-  position: relative;
+  position: absolute;
 }
 
 .vidBox {
@@ -84,12 +84,11 @@ header {
 
 #displayDiv {
   visibility: hidden; 
-  width: 70%;
-  height: 320px;
   position: relative;
-  left: 10%;
   padding-left: 10%;
   margin-top: 70px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 #vidDivL, #vidDivR {
