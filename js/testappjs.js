@@ -49,9 +49,8 @@ $(document).ready(function(){
 		});
 	}();
 
-	function addVideos(instaFeed){
-		// for (var k=1; k<instaFeed.length; k++) {
-
+	function addVideos(playlist){
+		console.log(playlist.length);
 		jwplayer("vidDivL").setup({
       controls: false,
       width: 470,
@@ -62,13 +61,7 @@ $(document).ready(function(){
       repeat: false,
       allowscriptaccess: "always",
       allownetworking: "all",
-      playlist: [
-          {  
-              sources: [
-              	{file: instaFeed[0]},
-              ]  
-          }, 
-      ]   
+      playlist: playlist
       });
 		};
 
@@ -82,16 +75,16 @@ $(document).ready(function(){
     console.log(instaFeed.length);
     console.log(instaFeed[0]);
 
-		// var playlist = jwplayer().getPlaylist();
-		// for (var k=1; k<instaFeed.length; k++) {
-  //       var newItem = {
-  //           file: instaFeed[(k-1)]
-  //       }
-  //       playlist.push(newItem);
-		// }
+		var playlist = [];
+		for (var k=0; k<instaFeed.length; k++) {
+        var newItem = {
+            file: instaFeed[(k)]
+        }
+        playlist.push(newItem);
+		}
 		// jwplayer().load(playlist);
 		// var vidUrl = 'http://distilleryimage7.s3.amazonaws.com/e591ae7215a411e3a3d522000a9f13e2_102.mp4';
-		addVideos(instaFeed);
+		addVideos(playlist);
 		// playState = true;
 		$('header').fadeOut("4000");
 		$('footer').fadeOut("4000");
