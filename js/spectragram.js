@@ -122,15 +122,19 @@ if (typeof Object.create !== 'function') {
         	if (results.data[i].videos) {
          	size = results.data[i].videos.low_resolution.url;
           self.$elem.append($(self.options.wrapEachWith).append(
-            "sources: <a data-media='" + results.data[i].type + "'title='" + results.data[i].caption.text +
-            "' target='_blank' href='" + results.data[i].link +
-            "'><video src='" + size + "'></video></a>"));
+            "<a class='instaVid' data-media='" + results.data[i].type + "'title='" + results.data[i].caption.text +
+            "' target='_blank' href='" + results.data[i].link + "'src='" + size + "'></a>"));
       		}
       	}
       }
       if (typeof self.options.complete === 'function') {
         self.options.complete.call(self);
       }
+      // instaFeed = $('.instaVid').map(function() {
+      //   return $(this).attr("src");
+      // }).get();
+      // console.log(instaFeed.length);
+      // console.log(instaFeed[0]);
     }
   };
 

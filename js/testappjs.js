@@ -2,11 +2,15 @@
 
 $(document).ready(function(){
 
+	
+
 	//***************** on first page load *************** 
 	$('#intro_text1, header').delay(500).fadeIn(1200);
 	$('#title_text').delay(1800).fadeIn(1200);
 	$('#intro_text2').delay(2800).fadeIn(1200);
 	$('#big_play_btn, footer').delay(3800).fadeIn(1200);
+	// var playState = false;
+	var instaFeed = [];
 
 
 	//***************** Facebook "Like" *******************
@@ -29,6 +33,8 @@ $(document).ready(function(){
 			}
 		}(document, 'script', 'twitter-wjs');
 
+	// ****************** JWplayer / video setup ****************
+
 	//***************** Instagram API ***************
 
 	jQuery.fn.spectragram.accessData = {
@@ -37,62 +43,65 @@ $(document).ready(function(){
 	};
 
 	!function grabVideos(){
-		$('.photoList').spectragram('getPopular',{
-	    max: 40,
-	    wrapEachWith: '<li class="instaVid"></li>',
+		$('.vidList').spectragram('getPopular',{
+	    max: 20,
+	    wrapEachWith: '<li></li>',
 		});
 	}();
 
-	// ****************** JWplayer / video setup ****************
-	var instaFeed = $('.instaVid');
-	jwplayer("vidDivL").setup({
-	file: '/some/summy/file.mp4',
-	controls: false,
-	width: 470,
-	height: 470,
-	fallback: true,
-	primary: "flash",
-	mute: true,
-	repeat: false,
-	allowscriptaccess: "always",
-	allownetworking: "all"
-});
+	function addVideos(instaFeed){
+		// for (var k=1; k<instaFeed.length; k++) {
+
+		jwplayer("vidDivL").setup({
+      controls: false,
+      width: 470,
+      height: 470,
+      fallback: true,
+      primary: "html5",
+      mute: true,
+      repeat: false,
+      allowscriptaccess: "always",
+      allownetworking: "all",
+      playlist: [
+          {  
+              sources: [
+              	{file: instaFeed[0]},
+              ]  
+          }, 
+      ]   
+      });
+		};
+
 
 	//***************** UI functionality **************
 
 	$('#big_play_btn').click(function(){
+		instaFeed = $('.instaVid').map(function() {
+    return $(this).attr("src");
+    }).get();
+    console.log(instaFeed.length);
+    console.log(instaFeed[0]);
+
+		// var playlist = jwplayer().getPlaylist();
+		// for (var k=1; k<instaFeed.length; k++) {
+  //       var newItem = {
+  //           file: instaFeed[(k-1)]
+  //       }
+  //       playlist.push(newItem);
+		// }
+		// jwplayer().load(playlist);
+		// var vidUrl = 'http://distilleryimage7.s3.amazonaws.com/e591ae7215a411e3a3d522000a9f13e2_102.mp4';
+		addVideos(instaFeed);
+		// playState = true;
 		$('header').fadeOut("4000");
 		$('footer').fadeOut("4000");
 		$('#overlay').fadeOut("4000", function() { $(this).remove(); });
 		$('#player_btns').delay("slow").fadeIn("slow", function() {
-			$('#displayDiv').css('visibility','visible').hide().fadeIn('slow');
-
-			
-			// var slideshow = null;
-		  // var index = 0;
-		  // var doNext = function() { 
-		  // 	$('#vidDivL').empty().append(instaFeed.eq(index)).hide().fadeIn(1500);
-		  // 	$('#vidDivR').empty().append(instaFeed.eq(index + 1)).hide().fadeIn(1500);
-		  //   index+=2;
-		  //   if (index >= instaFeed.length) {index = 0};
-		  // };	
-		  // doNext();
-		    
+			$('#displayDiv').css('visibility','visible').hide().fadeIn('slow');		    
 		  soundManager.play('kodachrome');
-
-		  function start() {  
-        slideshow = setInterval(doNext, 9000);
-    	};
-
-			function stop() {
-        clearInterval(slideshow);
-    	};
-
-			$('#play_btn').bind("click", start); 
-    	$('#stop_btn, #pause_btn').bind("click", stop);
-    	start();
-		});
-	});
+			jwplayer("vidDivL").play();
+		}); //end fadeIn
+	}); //end click
 
 	$('#about').hover(
 		function(){
@@ -101,7 +110,7 @@ $(document).ready(function(){
 		function(){
 			$(this).removeClass("bordered");
 		}
-	);3
+	);
 
 	$('#add-vid').hover(
 		function(){
