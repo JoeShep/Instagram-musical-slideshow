@@ -1,17 +1,24 @@
 <!DOCTYPE HTML>
-<html>
+<html lang="en">
 <head>
 	<meta charset='utf-8'>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+
 	<title>Instagram API example w/Spectragram</title>
+
 	<link rel="stylesheet" type="text/css" href="https://reset5.googlecode.com/hg/reset.min.css">
 	<link href='https://fonts.googleapis.com/css?family=Rock+Salt' rel='stylesheet' type='text/css'>
-	<link rel="stylesheet" type="text/css" href="style.css">
+	<link rel="stylesheet" type="text/css" href="css/ink-min.css">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
 	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js" ></script>
+	<script type="text/javascript" src="js/ink.min.js"></script>
 	<script src="js/jwplayer/jwplayer.js"></script>
 	<script src="js/soundmanager2.js"></script>
 	<script src="js/spectragram.js"></script>
 	<script type="text/javascript" src="js/testappjs.js"></script>
 </head>
+
 <body>
 	<div id="fb-root"></div>
 	<script></script>
@@ -24,37 +31,42 @@
 			<a href="https://twitter.com/share" class="twitter-share-button" data-via="JoeShepMedia">Tweet</a>
 		</div> <!-- end headerR -->
 	</header>
-
-	<div class="vidBox">
-		<ul class="vidList">
-		</ul>
-	</div>
-	<div class="container">
-		<section id="displayDiv">
-			<div id="vidDivL">
-			</div>
-			<div id="vidDivR">
-			</div>
-		</section> <!-- end display -->
-		<section id="overlay">
-			<p class="overlay_text" id="intro_text1">
-				Ouside the Box Music presents
-			</p>
-			<p class="overlay_text" id="title_text">
-				Lorem ipsum dolor sit.
-			</p>
-			<p class="overlay_text" id="intro_text2">
-				Morbi luctus elit nec convallis facilisis quam massa ultrices mi. 
-			</p class="overlay_text">
-			<img src="img/play_btn.jpg" alt="Big play button" id="big_play_btn">
-		</section>
-		<section id="player_btns">
-			<img src="img/play_btnSmall.png" alt="Play button" id="play_btn">
-			<img src="img/pause_btnSmall.png" alt="Pause button" id="pause_btn">
-			<div id="progBkgd" class="progBar"><div id="progColor" class="progBar"></div></div>
-			<!-- <img src="img/stop_btnSmall.png" alt="Stop button" id="stop_btn"> -->
-		</section>
+		<div class="vidBox">
+			<ul class="vidList">
+			</ul>
+		</div>
+		<div class="ink-grid"> <!-- container -->
+			<div class="column-group gutters" id="displayDiv">
+					<div class="large-50 small-100 test">
+						<div id="vidDivL"></div>
+					</div>
+					<div class="large-50 small-100 test">
+						<div id="vidDivR"></div>
+					</div>
+			</div> <!-- end display -->
+			<section id="overlay">
+				<p class="overlay_text" id="intro_text1">
+					Ouside the Box Music presents
+				</p>
+				<p class="overlay_text" id="title_text">
+					Lorem ipsum dolor sit.
+				</p>
+				<p class="overlay_text" id="intro_text2">
+					Morbi luctus elit nec convallis facilisis quam massa ultrices mi. 
+				</p class="overlay_text">
+				<img src="img/play_btn.jpg" alt="Big play button" id="big_play_btn">
+			</section>
+			<section class="row" id="player_btns">
+				<div class="col-med-2">
+					<img src="img/play_btnSmall.png" alt="Play button" id="play_btn">
+					<img src="img/pause_btnSmall.png" alt="Pause button" id="pause_btn">
+				</div>
+				<div id="progBkgd" class="progBar col-med-5"><div id="progColor" class="progBar"></div></div>
+				<!-- <img src="img/stop_btnSmall.png" alt="Stop button" id="stop_btn"> -->
+			</section>
+		<footer>
+			<p id="disclaimer">This website uses the Instagram™ API and is not endorsed or certified by Instagram or Instagram, Inc. All Instagram™ logos and trademarks displayed on this website are property of Instagram, Inc</p>
+		</footer>
 	</div> <!-- end container -->
-	<footer><p id="disclaimer">This website uses the Instagram™ API and is not endorsed or certified by Instagram or Instagram, Inc. All Instagram™ logos and trademarks displayed on this website are property of Instagram, Inc</p></footer>
 </body>
 </html>
