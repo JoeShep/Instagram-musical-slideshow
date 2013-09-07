@@ -109,6 +109,7 @@ $(document).ready(function () {
       $('#displayDiv, #pause_btn').css('visibility', 'visible')
         .hide().fadeIn('slow');
       soundManager.play('kodachrome');
+      $('#vidDivL').addClass('player-screen');
       jwplayer("vidDivR").play();
       jwplayer("vidDivL").play();
     }); //end fadeIn
@@ -116,7 +117,7 @@ $(document).ready(function () {
 
   // ******************* header nav *****************
 
-  $('#about').hover(
+  $('#about-link').hover(
     function () {
       $(this).addClass("bordered");
     },

@@ -21,30 +21,34 @@
 
 <body>
 	<div id="fb-root"></div>
-	<script></script>
-	<header>
+	<header class="quarter-top-space gutters">
 		<div class="headerL">
-			<p id="about">About Lorem Ipsum</p><p id="add-vid">Add Your Video</p>
+			<ul>
+				<li class="content-left nav medium-20 large-15" id="about-link">About Lorem Ipsum</li>
+				<li class="content-left push-left nav medium-20 large-15" id="add-vid">Add Your Video</li>
+			</ul>
 		</div>
-		<div class="headerR">	
+		<div class="headerR  large-30 push-right content-right">	
 			<div class="fb-like" data-href="https://instagramapitest-sewipi.backliftapp.com/" data-width="450" data-layout="button_count" data-show-faces="true" data-send="false"></div>
 			<a href="https://twitter.com/share" class="twitter-share-button" data-via="JoeShepMedia">Tweet</a>
 		</div> <!-- end headerR -->
 	</header>
+
 		<div class="vidBox">
-			<ul class="vidList">
-			</ul>
+			<ul class="vidList"></ul>
 		</div>
+
 		<div class="ink-grid"> <!-- container -->
 			<div class="column-group gutters" id="displayDiv">
-					<div class="large-50 small-100 test">
+					<div class="large-50">
 						<div id="vidDivL"></div>
 					</div>
-					<div class="large-50 small-100 test">
+					<div class="large-50">
 						<div id="vidDivR"></div>
 					</div>
 			</div> <!-- end display -->
-			<section id="overlay">
+
+			<section class="large-100 content-center top-space" id="overlay">
 				<p class="overlay_text" id="intro_text1">
 					Ouside the Box Music presents
 				</p>
@@ -55,13 +59,14 @@
 					Morbi luctus elit nec convallis facilisis quam massa ultrices mi. 
 				</p class="overlay_text">
 				<img src="img/play_btn.jpg" alt="Big play button" id="big_play_btn">
-			</section>
-			<section class="row" id="player_btns">
-				<div class="col-med-2">
+			</section> <!-- end overlay -->
+
+			<section class="column-group" id="player_btns">
+				<div class="large-20 content-right bottom-space">
 					<img src="img/play_btnSmall.png" alt="Play button" id="play_btn">
 					<img src="img/pause_btnSmall.png" alt="Pause button" id="pause_btn">
 				</div>
-				<div id="progBkgd" class="progBar col-med-5"><div id="progColor" class="progBar"></div></div>
+				<div id="progBkgd" class="progBar large-60 top-space"><div id="progColor" class="progBar"></div></div>
 				<!-- <img src="img/stop_btnSmall.png" alt="Stop button" id="stop_btn"> -->
 			</section>
 		<footer>

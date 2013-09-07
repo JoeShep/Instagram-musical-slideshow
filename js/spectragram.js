@@ -130,11 +130,6 @@ if (typeof Object.create !== 'function') {
       if (typeof self.options.complete === 'function') {
         self.options.complete.call(self);
       }
-      // instaFeed = $('.instaVid').map(function() {
-      //   return $(this).attr("src");
-      // }).get();
-      // console.log(instaFeed.length);
-      // console.log(instaFeed[0]);
     }
   };
 
