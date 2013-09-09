@@ -1,7 +1,7 @@
 $(document).ready(function () {
   $(window).load(function() {
     //***************** on first page load *************** 
-    $('#intro_text1').delay(500).css('visibility','visible').hide().fadeIn('1200');
+    $('#intro_text1').delay(500).hide().fadeIn('1200');
     $('#title_text').delay(1800).fadeIn(1200);
     $('#intro_text2').delay(2800).fadeIn(1200);
     $('#big_play_btn, footer').delay(3800).css('visibility', 'visible').hide().fadeIn('1200');
@@ -101,16 +101,17 @@ $(document).ready(function () {
     }
     addVideos(playlistL, playlistR);
 
-    $('header').animate({opacity:0},4000);;
-    $('footer').fadeOut("4000");
-    $('#overlay').fadeOut("4000", function () {
+    $('header').animate({opacity:0},1500);
+    $('footer').fadeOut("3000");
+    $('#overlay').fadeOut("3000", function () {
       $(this).remove();
     });
-    $('#player_btns').delay("4000").fadeIn("slow", function () {
-      $('#displayDiv, #pause_btn').css('visibility', 'visible')
+    $('#pause_btn').animate({opacity:1}, 4000); 
+    $('#player_btns').delay("3000").animate({opacity:1}, function () {
+      $('#displayDiv').css('visibility', 'visible')
         .hide().fadeIn('4000');
       soundManager.play('kodachrome');
-      $('#vidDivL').addClass('player-screen content-center');
+      $('#vidDivL').addClass('player-screen');
       jwplayer("vidDivR").play();
       jwplayer("vidDivL").play();
     }); //end fadeIn
@@ -168,12 +169,16 @@ $(document).ready(function () {
     soundManager.play('kodachrome');
     jwplayer("vidDivL").play();
     jwplayer("vidDivR").play();
+    $('#play_btn').animate({opacity:0}, 500).addClass('removed');
+    $('#pause_btn').animate({opacity:1}, 500).removeClass('removed');
   });
 
   $('#pause_btn').click(function () {
     soundManager.pause('kodachrome');
     jwplayer("vidDivL").pause();
     jwplayer("vidDivR").pause();
+    $('#pause_btn').animate({opacity:0}, 500).addClass('removed');
+    $('#play_btn').animate({opacity:1}, 500).removeClass('removed');
 
   });
 

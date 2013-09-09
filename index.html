@@ -40,14 +40,6 @@
 		</div>
 
 		<div class="ink-grid"> <!-- container -->
-			<div class="column-group gutters" id="displayDiv">
-					<div class="large-50">
-						<div id="vidDivL"></div>
-					</div>
-					<div class="large-50">
-						<div id="vidDivR"></div>
-					</div>
-			</div> <!-- end display -->
 
 			<section class="large-100 content-center top-space" id="overlay">
 				<p class="overlay_text" id="intro_text1">
@@ -62,6 +54,15 @@
 				<img src="img/play_btn.jpg" alt="Big play button" id="big_play_btn">
 			</section> <!-- end overlay -->
 
+			<div class="column-group gutters" id="displayDiv">
+					<div class="large-50">
+						<div id="vidDivL"></div>
+					</div>
+					<div class="large-50">
+						<div id="vidDivR"></div>
+					</div>
+			</div> <!-- end display -->
+
 			<section class="column-group" id="player_btns">
 				<div class="large-20 content-right bottom-space">
 					<img src="img/play_btnSmall.png" alt="Play button" id="play_btn">
@@ -70,8 +71,9 @@
 				<div id="progBkgd" class="progBar large-60 top-space"><div id="progColor" class="progBar"></div></div>
 				<!-- <img src="img/stop_btnSmall.png" alt="Stop button" id="stop_btn"> -->
 			</section>
-		<footer>
-			<p id="disclaimer">This website uses the Instagram™ API and is not endorsed or certified by Instagram or Instagram, Inc. All Instagram™ logos and trademarks displayed on this website are property of Instagram, Inc</p>
+
+		<footer class='column-group large-90 push-center'>
+			<p id="disclaimer" class="test">This website uses the Instagram™ API and is not endorsed or certified by Instagram or Instagram, Inc. All Instagram™ logos and trademarks displayed on this website are property of Instagram, Inc</p>
 		</footer>
 	</div> <!-- end container -->
 </body>
