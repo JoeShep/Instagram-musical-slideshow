@@ -1,5 +1,5 @@
 .test {
-  border: 1px solid green;
+  border: 1px solid red;
 }
 
 body {
@@ -9,18 +9,23 @@ body {
 /* header */
 
 #header {
-  display: none;
   padding: 6px 0;
   overflow: hidden;
   position: absolute;
+  height: 30px;
 }
 
 .nav {
-  display: inline;
+  visibility: hidden;
   padding-bottom: 8px;
   cursor: pointer;
   font-family: 'Rock Salt', cursive;
-  font-size: 90%
+  font-size: 90%;
+  list-style: none;
+}
+
+.headerR {
+  opacity: 0;
 }
 
 #about-link {
@@ -32,8 +37,10 @@ body {
   border-radius: 10px;
 }
 
+.twitter-share-button {
+}
+
 .fb-like {
-  margin-right: 5px;
 }
 
 /* body */
@@ -62,7 +69,7 @@ body {
 }
 
 #big_play_btn{
-  display: none;
+  visibility: hidden;
 }
 
 #displayDiv {
@@ -75,6 +82,7 @@ body {
 
 #vidDivL, #vidDivR {
   display: inline-block;
+  margin-left: 20px;
   -webkit-box-shadow: 0 8px 6px -6px black;
   -moz-box-shadow: 0 8px 6px -6px black;
   box-shadow: 0 8px 6px -6px black;
@@ -121,10 +129,9 @@ body {
 /*  footer  */
 
 footer {
-  display: none;
+  visibility: hidden;
   position: absolute;
   bottom: 15px;
-  /*width: 100%*/
 }
 
 #disclaimer {

@@ -1,12 +1,13 @@
 $(document).ready(function () {
-
-  //***************** on first page load *************** 
-  $('#intro_text1, header').delay(500).fadeIn(1200);
-  $('#title_text').delay(1800).fadeIn(1200);
-  $('#intro_text2').delay(2800).fadeIn(1200);
-  $('#big_play_btn, footer').delay(3800).fadeIn(1200);
-  var instaFeed = [];
-
+  $(window).load(function() {
+    //***************** on first page load *************** 
+    $('#intro_text1').delay(500).css('visibility','visible').hide().fadeIn('1200');
+    $('#title_text').delay(1800).fadeIn(1200);
+    $('#intro_text2').delay(2800).fadeIn(1200);
+    $('#big_play_btn, footer').delay(3800).css('visibility', 'visible').hide().fadeIn('1200');
+    $('.headerR').delay(3800).animate({opacity:1},1200);
+    var instaFeed = [];
+  });
 
   //***************** Facebook "Like" *******************
   (function (d, s, id) {
@@ -100,16 +101,16 @@ $(document).ready(function () {
     }
     addVideos(playlistL, playlistR);
 
-    $('header').fadeOut("4000");
+    $('header').animate({opacity:0},4000);;
     $('footer').fadeOut("4000");
     $('#overlay').fadeOut("4000", function () {
       $(this).remove();
     });
-    $('#player_btns').delay("slow").fadeIn("slow", function () {
+    $('#player_btns').delay("4000").fadeIn("slow", function () {
       $('#displayDiv, #pause_btn').css('visibility', 'visible')
-        .hide().fadeIn('slow');
+        .hide().fadeIn('4000');
       soundManager.play('kodachrome');
-      $('#vidDivL').addClass('player-screen');
+      $('#vidDivL').addClass('player-screen content-center');
       jwplayer("vidDivR").play();
       jwplayer("vidDivL").play();
     }); //end fadeIn
@@ -173,6 +174,7 @@ $(document).ready(function () {
     soundManager.pause('kodachrome');
     jwplayer("vidDivL").pause();
     jwplayer("vidDivR").pause();
+
   });
 
   // $('#stop_btn').click(function(){
