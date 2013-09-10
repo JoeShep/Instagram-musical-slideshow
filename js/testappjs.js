@@ -1,4 +1,5 @@
 $(document).ready(function () {
+  var fadeControlsTimer = null;
   $(window).load(function() {
     //***************** on first page load *************** 
     $('#intro_text1').delay(500).hide().fadeIn('1200');
@@ -101,19 +102,20 @@ $(document).ready(function () {
     }
     addVideos(playlistL, playlistR);
 
-    $('header').animate({opacity:0},1500);
+    // $('.headerR').animate({opacity:0},1500);
     $('footer').fadeOut("3000");
     $('#overlay').fadeOut("3000", function () {
       $(this).remove();
     });
     $('#pause_btn').animate({opacity:1}, 4000); 
-    $('#player_btns').delay("3000").animate({opacity:1}, function () {
+    $('#player_btns').delay('3000').animate({opacity:1}, function () {
       $('#displayDiv').css('visibility', 'visible')
         .hide().fadeIn('4000');
       soundManager.play('kodachrome');
       $('#vidDivL').addClass('player-screen');
       jwplayer("vidDivR").play();
       jwplayer("vidDivL").play();
+      setMouseTrigger();
     }); //end fadeIn
   }); //end click
 
@@ -171,6 +173,7 @@ $(document).ready(function () {
     jwplayer("vidDivR").play();
     $('#play_btn').animate({opacity:0}, 500).addClass('removed');
     $('#pause_btn').animate({opacity:1}, 500).removeClass('removed');
+    setMouseTrigger();
   });
 
   $('#pause_btn').click(function () {
@@ -179,14 +182,32 @@ $(document).ready(function () {
     jwplayer("vidDivR").pause();
     $('#pause_btn').animate({opacity:0}, 500).addClass('removed');
     $('#play_btn').animate({opacity:1}, 500).removeClass('removed');
-
+    undoMouseTrigger();
   });
 
-  // $('#stop_btn').click(function(){
-  // 	soundManager.stop('kodachrome');
-  // 	jwplayer("vidDivL").stop();
-  // 	jwplayer("vidDivR").stop();
-  // 	$("#progColor").css('width', '0');
-  // });
+function setMouseTrigger(){
+  var controls = $('#player_btns, .headerR, .nav');
+  controls.delay(1000).animate({opacity:0},1500);
+  $(document).on('mousemove', function() {
+    controls.finish();
+    controls.animate({opacity:1},500);
+    clearTimeout(fadeControlsTimer);
+    fadeControlsTimer = setTimeout(function(){
+      controls.delay(100).animate({opacity:0}, 500);
+    }, 2000);
+  });
+};
+
+
+function undoMouseTrigger() {
+  var controls = $('#player_btns, .headerR, .nav');
+  controls.finish().fadeIn(1000);
+  $(document).off('mousemove');
+  window.clearTimeout(fadeControlsTimer);
+  fadeControlsTimer = null;
+}
+
+
+
 
 }); //end ready

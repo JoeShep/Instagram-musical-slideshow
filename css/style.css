@@ -16,7 +16,7 @@ body {
 }
 
 .nav {
-  visibility: hidden;
+  opacity: 0;
   padding-bottom: 8px;
   cursor: pointer;
   font-family: 'Rock Salt', cursive;
