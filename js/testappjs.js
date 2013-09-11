@@ -129,7 +129,12 @@ $(document).ready(function () {
     function () {
       $(this).removeClass("bordered");
     }
-  );
+  ).click(function(){
+    wait = setTimeout( function() {
+        $('#addVidModal, #hAdd').hide();
+        $('#hAbout').show();
+      },100);
+  });
 
   $('#add-vid').hover(
     function () {
@@ -138,7 +143,12 @@ $(document).ready(function () {
     function () {
       $(this).removeClass("bordered");
     }
-  );
+  ).click(function(){
+      wait = setTimeout( function() {
+        $('#aboutModal, #hAbout').hide();
+        $('#hAdd').show();
+      },100);
+  });
 
   //******************* Music playback ************
 
