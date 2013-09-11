@@ -12,19 +12,21 @@
 	<link rel="stylesheet" type="text/css" href="css/ink-min.css">
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js" ></script>
-	<script type="text/javascript" src="js/ink.min.js"></script>
+	<script type="text/javascript" src="js/ink/ink.min.js"></script>
+	<script type="text/javascript" src="js/ink/autoload.js"></script>
+	<script type="text/javascript" src="js/ink/ink.modal.js"></script>
 	<script src="js/jwplayer/jwplayer.js"></script>
 	<script src="js/soundmanager2.js"></script>
 	<script src="js/spectragram.js"></script>
 	<script type="text/javascript" src="js/testappjs.js"></script>
 </head>
 
-<body>
+<body id="otbApp">
 	<header class="quarter-top-space gutters">
-		<div class="headerL">
+		<div class="headerL large-40">
 			<ul>
-				<li class="content-left nav medium-20 large-15" id="about-link">About Lorem Ipsum</li>
-				<li class="content-left push-left nav medium-20 large-15" id="add-vid">Add Your Video</li>
+				<li class="push-left nav" id="about-link">About Lorem Ipsum</li>
+				<li class="push-left nav" id="add-vid">Add Your Video</li>
 			</ul>
 		</div>
 		<div class="headerR large-30 push-right content-right">
@@ -71,7 +73,23 @@
 				<div id="progBkgd" class="progBar large-60 top-space"><div id="progColor" class="progBar"></div></div>
 				<!-- <img src="img/stop_btnSmall.png" alt="Stop button" id="stop_btn"> -->
 			</section>
-	</div> <!-- end container -->
+
+			<div class="ink-shade fade">
+    		<div class="ink-modal" data-trigger="#add-vid" data-close-on-click="true" data-width="1000px">
+    			<div class="modal-header">
+    				<h5>Add Your Video</h5>
+    				<button class="modal-close ink-dismiss"></button>
+    			</div> 
+					<div class="modal-body">
+						<p>
+						Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent diam nisl, elementum eget lorem in, aliquet commodo eros. Nam lacinia lobortis nisi et vehicula. Proin venenatis magna id ante convallis, ut dignissim nunc laoreet. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus scelerisque eleifend pellentesque. Praesent egestas tincidunt neque, ac blandit augue feugiat at. In iaculis ultricies sapien, quis varius lectus tincidunt a. Nulla facilisi. Donec porta, mauris facilisis volutpat tempus, augue libero aliquam justo, eu posuere arcu leo ac mi. Quisque varius porttitor lorem at interdum. Pellentesque placerat placerat lectus eu elementum. 
+					</p>
+				</div> 
+					<div class="modal-footer">test</div> 
+    		</div>
+  		</div>
+
+		</div> <!-- end container -->
 		<footer class='ink-grid'>
 			<p id="disclaimer">This website uses the Instagram™ API and is not endorsed or certified by Instagram or Instagram, Inc. All Instagram™ logos and trademarks displayed on this website are property of Instagram, Inc</p>
 		</footer>
