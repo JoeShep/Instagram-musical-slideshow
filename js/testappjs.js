@@ -186,29 +186,26 @@ $(document).ready(function () {
     undoMouseTrigger();
   });
 
-function setMouseTrigger(){
-  var controls = $('#player_btns, .headerR, .nav');
-  controls.delay(1000).animate({opacity:0},1500);
-  $(document).on('mousemove', function() {
-    controls.finish();
-    controls.animate({opacity:1},500);
-    clearTimeout(fadeControlsTimer);
-    fadeControlsTimer = setTimeout(function(){
-      controls.delay(100).animate({opacity:0}, 500);
-    }, 2000);
-  });
-};
+  function setMouseTrigger(){
+    var controls = $('#player_btns, .headerR, .nav');
+    controls.delay(1000).animate({opacity:0},1500);
+    $(document).on('mousemove', function() {
+      controls.finish();
+      controls.animate({opacity:1},500);
+      clearTimeout(fadeControlsTimer);
+      fadeControlsTimer = setTimeout(function(){
+        controls.delay(100).animate({opacity:0}, 500);
+      }, 2000);
+    });
+  };
 
+  function undoMouseTrigger() {
+    var controls = $('#player_btns, .headerR, .nav');
+    controls.finish().fadeIn(1000);
+    $(document).off('mousemove');
+    window.clearTimeout(fadeControlsTimer);
+    fadeControlsTimer = null;
+  }
 
-function undoMouseTrigger() {
-  var controls = $('#player_btns, .headerR, .nav');
-  controls.finish().fadeIn(1000);
-  $(document).off('mousemove');
-  window.clearTimeout(fadeControlsTimer);
-  fadeControlsTimer = null;
-}
-
-
-
-
+  
 }); //end ready
