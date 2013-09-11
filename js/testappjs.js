@@ -1,3 +1,4 @@
+
 $(document).ready(function () {
   var fadeControlsTimer = null;
   $(window).load(function() {
@@ -7,7 +8,8 @@ $(document).ready(function () {
     $('#intro_text2').delay(2800).fadeIn(1200);
     $('#big_play_btn, footer').delay(3800).css('visibility', 'visible').hide().fadeIn('1200');
     $('.headerR').delay(3800).animate({opacity:1},1200);
-    var instaFeed = [];
+    var instaFeed = []
+    
   });
 
   //***************** Facebook "Like" *******************
@@ -102,7 +104,6 @@ $(document).ready(function () {
     }
     addVideos(playlistL, playlistR);
 
-    // $('.headerR').animate({opacity:0},1500);
     $('footer').fadeOut("3000");
     $('#overlay').fadeOut("3000", function () {
       $(this).remove();
@@ -112,7 +113,7 @@ $(document).ready(function () {
       $('#displayDiv').css('visibility', 'visible')
         .hide().fadeIn('4000');
       soundManager.play('kodachrome');
-      $('#vidDivL').addClass('player-screen');
+      $('#vidDivL, #vidDivR').addClass('player-screen');
       jwplayer("vidDivR").play();
       jwplayer("vidDivL").play();
       setMouseTrigger();
