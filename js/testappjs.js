@@ -1,6 +1,7 @@
 
 $(document).ready(function () {
   var fadeControlsTimer = null;
+
   $(window).load(function() {
     //***************** on first page load *************** 
     $('#intro_text1').delay(500).hide().fadeIn('1200');
@@ -8,8 +9,7 @@ $(document).ready(function () {
     $('#intro_text2').delay(2800).fadeIn(1200);
     $('#big_play_btn, footer').delay(3800).css('visibility', 'visible').hide().fadeIn('1200');
     $('.headerR').delay(3800).animate({opacity:1},1200);
-    var instaFeed = []
-    
+    var instaFeed = [];  
   });
 
   //***************** Facebook "Like" *******************
@@ -76,7 +76,6 @@ $(document).ready(function () {
       playlist: playlistR
     });
   };
-
 
   //***************** UI functionality **************
   // *************** overlay play button ***********
@@ -240,6 +239,5 @@ $(document).ready(function () {
     window.clearTimeout(fadeControlsTimer);
     fadeControlsTimer = null;
   }
-
   
 }); //end ready

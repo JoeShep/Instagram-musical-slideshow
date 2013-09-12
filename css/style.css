@@ -142,13 +142,13 @@ body {
 #player_btns {
   opacity: 0;
   position: absolute;
-   top: 80%;
-   right: 0;
-   bottom: 0;
-   left: 10%;
-   margin: auto;
-   width: 80%;
-   height: 50px; 
+  top: 80%;
+  right: 0;
+  bottom: 0;
+  left: 10%;
+  margin: auto;
+  width: 80%;
+  height: 50px;
 }
   
 #progBkgd {
@@ -182,7 +182,19 @@ body {
   border-radius: 10px;
 }
 
-/*  footer  */
+/******************** Modal ***********************/
+
+.ink-modal {
+  background-image: url('../img/bkgrnd.png');
+  opacity: .7;
+}
+
+.modal-header {
+  background-color: #69414E;
+  opacity: .7;
+}
+
+/******************** footer *********************/
 
 footer {
   visibility: hidden;
