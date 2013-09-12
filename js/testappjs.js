@@ -113,7 +113,6 @@ $(document).ready(function () {
         .hide().fadeIn('5000');
       $('#vidDivL, #vidDivR').addClass('player-screen');
       playMedia();
-      setMouseTrigger();
     }); //end fadeIn
   }); //end click
 
@@ -126,8 +125,9 @@ $(document).ready(function () {
     function () {
       $(this).removeClass("bordered");
     }
-  ).click(function(){
-      pauseMedia();
+  ).click(function() {
+      if (jwplayer("vidDivL").getState() == "PLAYING") {
+      pauseMedia(); };
       wait = setTimeout( function() {
           $('#addVidModal, #hAdd').hide();
           $('#hAbout').show();
@@ -141,13 +141,25 @@ $(document).ready(function () {
     function () {
       $(this).removeClass("bordered");
     }
-  ).click(function(){
-      pauseMedia();
+  ).click(function() {
+    if (jwplayer("vidDivL").getState() == "PLAYING") {
+      pauseMedia(); };
       wait = setTimeout( function() {
         $('#aboutModal, #hAbout').hide();
         $('#hAdd').show();
       },100);
   });
+
+  $('#player_btns').hover(
+    function() {
+      if (jwplayer("vidDivL").getState() == "PLAYING") {
+        undoMouseTrigger(); }
+    },
+    function() {
+      if (jwplayer("vidDivL").getState() == "PLAYING") {
+        setMouseTrigger(); }
+    }
+  );
 
   //******************* Music playback ************
 
@@ -180,35 +192,51 @@ $(document).ready(function () {
 
   $('#play_btn').click(function () {
     playMedia();
-    $('#play_btn').animate({opacity:0}, 500).addClass('removed');
-    $('#pause_btn').animate({opacity:1}, 500).removeClass('removed');
-    setMouseTrigger();
   });
 
   $('#pause_btn').click(function () {
     pauseMedia();
-    $('#pause_btn').animate({opacity:0}, 500).addClass('removed');
-    $('#play_btn').animate({opacity:1}, 500).removeClass('removed');
-    undoMouseTrigger();
   });
 
-  $('.modal-close').click(function(){
-    playMedia();
+  $('.modal-close').click(function() {
+    if($('#pause_btn').hasClass('removed')) {
+      playMedia();
+    }
   });
 
-  function playMedia(){
+  $('#replay').on('click', function() {
+    location.reload();
+  });
+
+  window.onblur = function() {
+    if (jwplayer("vidDivL").getState() == "PLAYING") {
+      pauseMedia(); };
+  }
+
+  window.onfocus = function() {
+    if($('#play_btn').hasClass('removed')) {
+      playMedia(); };
+  }
+
+  function playMedia() {
+    $('#play_btn').animate({opacity:0}, 500).addClass('removed');
+    $('#pause_btn').animate({opacity:1}, 500).removeClass('removed');
     soundManager.play('kodachrome');
     jwplayer("vidDivL").play();
     jwplayer("vidDivR").play();
+    setMouseTrigger();
   }
 
-  function pauseMedia(){
+  function pauseMedia() {
+    $('#pause_btn').animate({opacity:0}, 500).addClass('removed');
+    $('#play_btn').animate({opacity:1}, 500).removeClass('removed');
     soundManager.pause('kodachrome');
     jwplayer("vidDivL").pause();
     jwplayer("vidDivR").pause();
+    undoMouseTrigger();
   }
 
-  function wrapUp(){
+  function wrapUp() {
     undoMouseTrigger();
     var UI = $('#player_btns, #displayDiv, .nav');
     UI.animate({opacity:0},5000, function(){
