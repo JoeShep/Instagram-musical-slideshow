@@ -108,14 +108,12 @@ $(document).ready(function () {
     $('#overlay').fadeOut("3000", function () {
       $(this).remove();
     });
-    $('#pause_btn').animate({opacity:1}, 4000); 
-    $('#player_btns').delay('3000').animate({opacity:1}, function () {
+    $('#pause_btn').animate({opacity:1}, 3000); 
+    $('#player_btns').delay('2000').animate({opacity:1}, function () {
       $('#displayDiv').css('visibility', 'visible')
-        .hide().fadeIn('4000');
-      soundManager.play('kodachrome');
+        .hide().fadeIn('5000');
       $('#vidDivL, #vidDivR').addClass('player-screen');
-      jwplayer("vidDivR").play();
-      jwplayer("vidDivL").play();
+      playMedia();
       setMouseTrigger();
     }); //end fadeIn
   }); //end click
@@ -130,10 +128,11 @@ $(document).ready(function () {
       $(this).removeClass("bordered");
     }
   ).click(function(){
-    wait = setTimeout( function() {
-        $('#addVidModal, #hAdd').hide();
-        $('#hAbout').show();
-      },100);
+      pauseMedia();
+      wait = setTimeout( function() {
+          $('#addVidModal, #hAdd').hide();
+          $('#hAbout').show();
+        },100);
   });
 
   $('#add-vid').hover(
@@ -144,6 +143,7 @@ $(document).ready(function () {
       $(this).removeClass("bordered");
     }
   ).click(function(){
+      pauseMedia();
       wait = setTimeout( function() {
         $('#aboutModal, #hAbout').hide();
         $('#hAdd').show();
@@ -162,10 +162,11 @@ $(document).ready(function () {
         url: 'audio/Kodachrome.mp3',
         whileplaying: function () {
           $("#progColor").css('width', ((this.position / this.duration) *
-            100) + '%')
+            100) + '%');
         },
         onfinish: function () {
           $("#progColor").css('width', '0');
+          wrapUp();
         }
       });
     },
@@ -179,22 +180,45 @@ $(document).ready(function () {
   // ************* user controls *******************
 
   $('#play_btn').click(function () {
-    soundManager.play('kodachrome');
-    jwplayer("vidDivL").play();
-    jwplayer("vidDivR").play();
+    playMedia();
     $('#play_btn').animate({opacity:0}, 500).addClass('removed');
     $('#pause_btn').animate({opacity:1}, 500).removeClass('removed');
     setMouseTrigger();
   });
 
   $('#pause_btn').click(function () {
-    soundManager.pause('kodachrome');
-    jwplayer("vidDivL").pause();
-    jwplayer("vidDivR").pause();
+    pauseMedia();
     $('#pause_btn').animate({opacity:0}, 500).addClass('removed');
     $('#play_btn').animate({opacity:1}, 500).removeClass('removed');
     undoMouseTrigger();
   });
+
+  $('.modal-close').click(function(){
+    playMedia();
+  });
+
+  function playMedia(){
+    soundManager.play('kodachrome');
+    jwplayer("vidDivL").play();
+    jwplayer("vidDivR").play();
+  }
+
+  function pauseMedia(){
+    soundManager.pause('kodachrome');
+    jwplayer("vidDivL").pause();
+    jwplayer("vidDivR").pause();
+  }
+
+  function wrapUp(){
+    undoMouseTrigger();
+    var UI = $('#player_btns, #displayDiv, .nav');
+    UI.animate({opacity:0},5000, function(){
+      jwplayer("vidDivL").stop();
+      jwplayer("vidDivR").stop();
+      $('.headerR').animate({opacity:1},250);
+      $('.container').append("<div id='replayDiv'><p id='replay'>MAKE A NEW VIDEO</p></div>");
+    });
+  }
 
   function setMouseTrigger(){
     var controls = $('#player_btns, .headerR, .nav');
