@@ -218,8 +218,8 @@ $(document).ready(function () {
     }
   });
 
-  $('#replay').on('click', function() {
-    location.reload();
+  $('.mainContainer').on('click', '#replay', function() {
+    window.location.reload(true);
   });
 
   window.onblur = function() {
