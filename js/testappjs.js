@@ -242,12 +242,14 @@ $(document).ready(function () {
     UI.animate({opacity:0},5000, function(){
       jwplayer("vidDivL").stop();
       jwplayer("vidDivR").stop();
+      window.onfocus = '';
+      UI.remove();
       $('.headerR').animate({opacity:1},250);
-      $('.container').append("<div id='replayDiv'><p id='replay'>MAKE A NEW VIDEO</p></div>");
+      $('.mainContainer').append("<div id='replayDiv'><p>MAKE A NEW VIDEO</p><img id='replay' src='img/arrow-refresh.png' alt='Replay icon'></div>");
     });
   }
 
-  function setMouseTrigger(){
+  function setMouseTrigger() {
     var controls = $('#player_btns, .headerR, .nav');
     controls.delay(1000).animate({opacity:0},1500);
     $(document).on('mousemove', function() {
