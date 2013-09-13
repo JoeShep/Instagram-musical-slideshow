@@ -113,6 +113,7 @@ $(document).ready(function () {
         .hide().fadeIn('5000');
       $('#vidDivL, #vidDivR').addClass('player-screen');
       playMedia();
+      setFadeOut();
     }); //end fadeIn
   }); //end click
 
@@ -170,14 +171,13 @@ $(document).ready(function () {
     onready: function () {
       soundManager.createSound({
         id: 'kodachrome',
-        url: 'audio/Kodachrome.mp3',
+        url: 'audio/Starry_music.mp3',
         whileplaying: function () {
           $("#progColor").css('width', ((this.position / this.duration) *
             100) + '%');
         },
         onfinish: function () {
           $("#progColor").css('width', '0');
-          wrapUp();
         }
       });
     },
@@ -187,6 +187,20 @@ $(document).ready(function () {
       // See the flashblock demo when you want to start getting fancy.
     }
   });
+  
+
+  function setFadeOut() {
+    var track = soundManager.getSoundById('kodachrome');
+    if (typeof addedListeners === 'undefined') {
+    addedListeners = true;
+
+    track.onPosition(27000, function(eventPosition) { 
+      wrapUp();
+    });
+    };
+  };
+  
+
 
   // ************* user controls *******************
 
