@@ -16,6 +16,8 @@ body {
   background-image: url('../img/bkgrnd.png');
 }
 
+
+
 /* header */
 
 #header {
@@ -101,6 +103,7 @@ body {
 }
 
 #frame1 {
+  visibility: hidden;
   position: absolute;
   z-index: 1000;
   bottom: 30px;
@@ -130,6 +133,7 @@ body {
 #replay {
   cursor: pointer;
   z-index: 1000;
+  margin-left: 10px;
 }
 
 .player-screen {

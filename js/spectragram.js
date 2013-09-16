@@ -83,8 +83,7 @@ if (typeof Object.create !== 'function') {
     //Get a list of recently tagged media
     getRecentTagged: function () {
       var self = this,
-        getData = '/tags/' + self.options.query +
-          '/media/recent?client_id=' + self.accessData.clientID +
+        getData = '/tags/' + self.options.query + '/media/recent?client_id=' + self.accessData.clientID +
           '&access_token=' + self.accessData.accessToken + '';
 
       self.fetch(getData).done(function (results) {

@@ -45,8 +45,8 @@ $(document).ready(function () {
 
   ! function grabVideos() {
     $('.vidList').spectragram('getPopular', {
-      max: 20,
-      wrapEachWith: '<li></li>',
+      // query: 'love',
+      max: 20
     });
   }();
 
@@ -257,6 +257,7 @@ $(document).ready(function () {
       jwplayer("vidDivL").stop();
       jwplayer("vidDivR").stop();
       window.onfocus = '';
+      window.onblur = '';
       UI.remove();
       $('.headerR').animate({opacity:1},250);
       $('.mainContainer').append("<div id='replayDiv'><p>MAKE A NEW VIDEO</p><img id='replay' src='img/arrow-refresh.png' alt='Replay icon'></div>");
