@@ -121,7 +121,7 @@ if (typeof Object.create !== 'function') {
         	if (results.data[i].videos) {
          	size = results.data[i].videos.low_resolution.url;
           self.$elem.append($(self.options.wrapEachWith).append(
-            "<a class='instaVid' data-media='" + results.data[i].type + "'title='" + results.data[i].caption.text +
+            "<a class='instaVid' data-profile_pic='" + results.data[i].user.profile_picture + "' data-media='" + results.data[i].type + "'title='" + results.data[i].caption.text +
             "' target='_blank' href='" + results.data[i].link + "'src='" + size + "'></a>"));
       		}
       	}

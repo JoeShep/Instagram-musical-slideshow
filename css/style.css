@@ -105,8 +105,22 @@ body {
 #frame1 {
   visibility: hidden;
   position: absolute;
-  z-index: 1000;
+  z-index: 500;
   bottom: 30px;
+}
+
+#profile_picL {
+  position: absolute;
+  bottom: 50px;
+  left: 55px;
+  z-index: 1000;
+}
+
+#profile_picR {
+  position: absolute;
+  bottom: 50px;
+  left: 555px;
+  z-index: 1000;
 }
 
 #displayDiv {

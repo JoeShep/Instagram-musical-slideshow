@@ -8,8 +8,7 @@ $(document).ready(function () {
     $('#title_text').delay(1800).fadeIn(1200);
     $('#intro_text2').delay(2800).fadeIn(1200);
     $('#big_play_btn, footer').delay(3800).css('visibility', 'visible').hide().fadeIn('1200');
-    $('.headerR').delay(3800).animate({opacity:1},1200);
-    var instaFeed = [];  
+    $('.headerR').delay(3800).animate({opacity:1},1200); 
   });
 
   //***************** Facebook "Like" *******************
@@ -81,28 +80,7 @@ $(document).ready(function () {
   // *************** overlay play button ***********
 
   $('#big_play_btn').click(function () {
-    instaFeed = $('.instaVid').map(function () {
-      return $(this).attr("src");
-    }).get();
-    console.log(instaFeed.length);
-    console.log(instaFeed[1]);
-
-    var playlistL = [];
-    var playlistR = [];
-    for (var k = 0; k < instaFeed.length; k = k + 2) {
-      var newItem = {
-        file: instaFeed[(k)]
-      }
-      playlistL.push(newItem);
-    }
-    for (var k = 1; k < instaFeed.length; k = k + 2) {
-      var newItem = {
-        file: instaFeed[(k)]
-      }
-      playlistR.push(newItem);
-    }
-    addVideos(playlistL, playlistR);
-
+    setPlaylist();
     $('footer').fadeOut("3000");
     $('#overlay').fadeOut("3000", function () {
       $(this).remove();
@@ -230,6 +208,58 @@ $(document).ready(function () {
   window.onfocus = function() {
     if($('#play_btn').hasClass('removed')) {
       playMedia(); };
+  }
+
+  function setPlaylist() {
+    var instaFeed = $('.instaVid').map(function () {
+      var $vid = $(this);
+      return {
+        video: $vid.attr("src"),
+        profile_pic: $vid.data("profile_pic")
+      };
+    }).get();
+    console.log(instaFeed.length);
+    console.log(instaFeed[0]);
+
+    var playlistL = [],
+        playlistR = [],
+        picslistL = [],
+        picslistR = [];
+    for (var k = 0; k < instaFeed.length; k = k + 2) {
+      var newPic = instaFeed[(k)].profile_pic;
+      var newVid = {
+        file: instaFeed[(k)].video
+      };
+      picslistL.push(newPic);
+      playlistL.push(newVid);
+    }
+    for (var k = 1; k < instaFeed.length; k = k + 2) {
+      var newPic = instaFeed[(k)].profile_pic;
+      var newVid = {
+        file: instaFeed[(k)].video
+      };
+      picslistR.push(newPic);
+      playlistR.push(newVid);
+    }
+    addVideos(playlistL, playlistR);
+    displayProfilePics(picslistL, "picslistL");
+    displayProfilePics(picslistR, "picslistR");
+  }
+
+  function displayProfilePics(pics, pics_name) {
+    if (pics_name == "picslistL"){
+    var x = "L";
+    } else { var x = "R" }
+    var $length = pics.length;
+    var $imgShow = 0;
+    $('#display' + x).append("<img id='profile_pic" + x + "' height='50px' width='50px'>");   
+    jwplayer("vidDiv" + x).onPlaylistItem(function() { 
+        if($('#profile_pic' + x).attr("src")) {
+          $('#profile_pic' + x).attr("src", pics[++$imgShow % $length]);
+        } else {
+          $('#profile_pic' + x).attr("src", pics[0]);
+        }
+    });
   }
 
   function playMedia() {
