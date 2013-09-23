@@ -200,6 +200,23 @@ $(document).ready(function () {
     window.location.reload(true);
   });
 
+  $('.vidFrame').hover(
+    function() {
+      if($(this).index()==0){
+        $('#profile_picL, #usernameL').animate({opacity:1});
+      } else {
+        $('#profile_picR, #usernameR').animate({opacity:1});
+      }
+    },
+    function() {
+      if($(this).index()==0){
+        $('#profile_picL, #usernameL').animate({opacity:0});
+      } else {
+        $('#profile_picR, #usernameR').animate({opacity:0});
+      }
+    }
+  );
+
   window.onblur = function() {
     if (jwplayer("vidDivL").getState() == "PLAYING") {
       pauseMedia(); };
@@ -210,12 +227,15 @@ $(document).ready(function () {
       playMedia(); };
   }
 
+  // ****************** functions ************************
+
   function setPlaylist() {
     var instaFeed = $('.instaVid').map(function () {
       var $vid = $(this);
       return {
         video: $vid.attr("src"),
-        profile_pic: $vid.data("profile_pic")
+        profile_pic: $vid.data("profile_pic"),
+        username: $vid.data("username")
       };
     }).get();
     console.log(instaFeed.length);
@@ -226,19 +246,19 @@ $(document).ready(function () {
         picslistL = [],
         picslistR = [];
     for (var k = 0; k < instaFeed.length; k = k + 2) {
-      var newPic = instaFeed[(k)].profile_pic;
+      var newUser = [instaFeed[(k)].profile_pic, instaFeed[(k)].username];
       var newVid = {
         file: instaFeed[(k)].video
       };
-      picslistL.push(newPic);
+      picslistL.push(newUser);
       playlistL.push(newVid);
     }
     for (var k = 1; k < instaFeed.length; k = k + 2) {
-      var newPic = instaFeed[(k)].profile_pic;
+      var newUser = [instaFeed[(k)].profile_pic, instaFeed[(k)].username];
       var newVid = {
         file: instaFeed[(k)].video
       };
-      picslistR.push(newPic);
+      picslistR.push(newUser);
       playlistR.push(newVid);
     }
     addVideos(playlistL, playlistR);
@@ -252,12 +272,14 @@ $(document).ready(function () {
     } else { var x = "R" }
     var $length = pics.length;
     var $imgShow = 0;
-    $('#display' + x).append("<img id='profile_pic" + x + "' height='50px' width='50px'>");   
+    $('#display' + x).append("<img id='profile_pic" + x + "' height='50px' width='50px'><p id='username" + x + "'></p>");   
     jwplayer("vidDiv" + x).onPlaylistItem(function() { 
         if($('#profile_pic' + x).attr("src")) {
-          $('#profile_pic' + x).attr("src", pics[++$imgShow % $length]);
+          $('#profile_pic' + x).attr("src", pics[++$imgShow % $length][0]);
+          $('#username' + x).append(pics[++$imgShow % $length][1]);
         } else {
-          $('#profile_pic' + x).attr("src", pics[0]);
+          $('#profile_pic' + x).attr("src", pics[0][0]);
+          $('#username' + x).append(pics[0][1]);
         }
     });
   }

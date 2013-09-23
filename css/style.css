@@ -110,6 +110,7 @@ body {
 }
 
 #profile_picL {
+  opacity: 0;
   position: absolute;
   bottom: 50px;
   left: 55px;
@@ -117,10 +118,29 @@ body {
 }
 
 #profile_picR {
+  opacity: 0;
   position: absolute;
   bottom: 50px;
   left: 555px;
   z-index: 1000;
+}
+
+#usernameL {
+  opacity: 0;
+  position: absolute;
+  bottom: 60px;
+  left: 110px;
+  z-index: 1000;
+  color: white;
+}
+
+#usernameR {
+  opacity: 0;
+  position: absolute;
+  bottom: 60px;
+  left: 610px;
+  z-index: 1000;
+  color: white;
 }
 
 #displayDiv {
