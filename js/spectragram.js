@@ -157,8 +157,6 @@ if (typeof Object.create !== 'function') {
   //Plugin Default Options
   jQuery.fn.spectragram.options = {
     max: 10,
-    query: 'coffee',
-    size: 'medium',
     wrapEachWith: '<li></li>',
     complete: null
   };

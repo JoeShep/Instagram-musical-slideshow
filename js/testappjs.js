@@ -43,8 +43,8 @@ $(document).ready(function () {
   // ****************** JWplayer / video setup ****************
 
   ! function grabVideos() {
-    $('.vidList').spectragram('getPopular', {
-      // query: 'love',
+    $('.vidList').spectragram('getRecentTagged', {
+      query: 'video',
       max: 20
     });
   }();
