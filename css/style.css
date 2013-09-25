@@ -243,6 +243,14 @@ body {
   opacity: .7;
 }
 
+.credits {
+  opacity: 0;
+}
+
+#creditsTable td {
+  padding: 20px 40px;
+}
+
 /******************** footer *********************/
 
 footer {
